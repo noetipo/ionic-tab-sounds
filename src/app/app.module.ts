@@ -16,6 +16,10 @@ import { AudioProvider } from '../providers/audio/audio';
 import { CloudProvider } from '../providers/cloud/cloud';
 import {StoreModule} from "@ngrx/store";
 import {mediaStateReducer} from '../providers/store/store';
+import { IonicAudioModule, WebAudioProvider, CordovaMediaProvider, defaultAudioProviderFactory } from 'ionic-audio';
+export function myCustomAudioProviderFactory() {
+  return (window.hasOwnProperty('cordova')) ? new CordovaMediaProvider() : new WebAudioProvider();
+}
 
 @NgModule({
   declarations: [
@@ -28,6 +32,7 @@ import {mediaStateReducer} from '../providers/store/store';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicAudioModule.forRoot(defaultAudioProviderFactory),
     StoreModule.forRoot({
       appState: mediaStateReducer
     }),
@@ -45,6 +50,7 @@ import {mediaStateReducer} from '../providers/store/store';
     SplashScreen,
     SmartAudio,
     NativeAudio,
+
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AudioProvider,
     CloudProvider

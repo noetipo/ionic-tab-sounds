@@ -30,7 +30,9 @@
     "@ngrx/store": "^6.1.2",
     "@types/auth0-js": "^8.11.7",
     "auth0-js": "^9.8.2",
+    "cordova-plugin-nativeaudio": "^3.0.9",
     "ionic-angular": "3.9.2",
+    "ionic-audio": "^3.2.0",
     "ionicons": "3.0.0",
     "moment": "^2.22.2",
     "rxjs": "^6.2.1",
@@ -42,5 +44,10 @@
     "@ionic/app-scripts": "3.2.1",
     "typescript": "~2.6.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-nativeaudio": {}
+    }
+  }
 }

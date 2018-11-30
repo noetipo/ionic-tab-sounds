@@ -8,6 +8,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { SmartAudio } from '../providers/smart-audio/smart-audio';
 
+import { AudioProvider, ITrackConstraint } from 'ionic-audio';
 @Component({
   templateUrl: 'app.html'
 })
